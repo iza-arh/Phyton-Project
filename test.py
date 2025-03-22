@@ -151,12 +151,10 @@ def sort_tasks():
     for task in sorted_tasks:
         print_task_details(task)
 
-def taskManager():
-    use_task_manager  = "yes"
-
+def task_manager():
+    use_task_manager = input("Do you need to use the task manager?")
     while use_task_manager == "yes":
       
-      use_task_manager = input("Do you need to use the task manager?")
       type_of_function = input("What are ya gonna do?")
 
       if(type_of_function == "add task"):

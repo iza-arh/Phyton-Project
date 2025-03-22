@@ -20,53 +20,6 @@ class Task:
         self.quote = quote
 
 
-# Instantiations to test
-task1 = Task(
-    title="Finish Report",
-    description="Complete the monthly financial report.",
-    status="In Progress",
-    priority=3,
-    quote="Time is money."
-)
-
-task2 = Task(
-    title="Team Meeting",
-    description="Weekly team sync-up to discuss project updates.",
-    status="Pending",
-    priority=4,
-    quote="Collaboration brings success."
-)
-
-task3 = Task(
-    title="Code Review",
-    description="Review the pull request for the new feature.",
-    status="Completed",
-    priority=5,
-    quote="Quality is not an act, it's a habit."
-)
-
-task4 = Task(
-    title="Write Documentation",
-    description="Document the newly implemented functions and modules.",
-    status="Pending",
-    priority=2,
-    quote="Good documentation is key to success."
-)
-
-task5 = Task(
-    title="Bug Fix",
-    description="Fix the issue causing the application to crash on startup.",
-    status="In Progress",
-    priority=1,
-    quote="Fix the bugs, improve the product."
-)
-
-tasklist.append(task1)
-tasklist.append(task2)
-tasklist.append(task3)
-tasklist.append(task4)
-tasklist.append(task5)
-
 def write_tasks(task):
     file_exists = os.path.exists('data.csv')
     

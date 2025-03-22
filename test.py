@@ -43,8 +43,15 @@ def get_random_quote():
     quote = response.json().get("fact")
     return quote
 
+def uppercase_task_status(function):
+    def wrapper():
+        task_obj = function()
+        task_obj.status = task_obj.status.upper()
+        print(task_obj.status)
+        return task_obj
+    return wrapper
 
-
+@uppercase_task_status
 def create_task():
     title = input("Enter task title: ")
     description = input("Enter task description: ")

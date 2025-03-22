@@ -160,9 +160,8 @@ def task_manager():
       print("3. Search Task")
       print("4. Delete Tasks")
       print("5. Find task based on priority")
-      print("6. Exit")
 
-      choice = input("Choose an option: ")
+      choice = int(input("Choose an option: "))
 
       if(choice == 1):
           add_task()
@@ -178,6 +177,9 @@ def task_manager():
           priority_number = int(input("Insert the number of priority "))
           find_task_based_on_priority(priority_number)
       use_task_manager = input("Do you need to use the task manager?")
+
+
+task_manager()
 
 
 

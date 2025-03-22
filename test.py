@@ -1,6 +1,7 @@
 import requests
 import numpy as np
 import csv
+import os
 
 tasklistFields = ["title", "description", "status", "priority", "quote"]
 tasklist = []
@@ -9,9 +10,6 @@ tasklist_filename = "tasklist_file.csv"
 with open('data.csv', newline='', encoding='utf-8') as csvfile:
     reader = csv.reader(csvfile) 
     
-    for row in reader:
-        print(row)
-
         
 class Task:
     def __init__(self, title, description, status, priority, quote):
@@ -69,10 +67,14 @@ tasklist.append(task3)
 tasklist.append(task4)
 tasklist.append(task5)
 
-with open('data.csv', mode='w', newline='') as file:
-    writer = csv.DictWriter(file, tasklistFields)
-    writer.writeheader()
-    for task in tasklist:
+def write_tasks(task):
+    file_exists = os.path.exists('data.csv')
+    
+    with open('data.csv', mode='a', newline='') as file:
+        writer = csv.DictWriter(file, tasklistFields)
+        if not file_exists:
+            writer.writeheader()
+        
         writer.writerow(task.__dict__)
 
 def generate_priority():
@@ -180,10 +182,6 @@ def task_manager():
       elif(choice == 6):
           sort_tasks()
       use_task_manager = input("Do you need to use the task manager?")
-
-
-task_manager()
-
 
 
     

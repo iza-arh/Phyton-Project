@@ -7,10 +7,6 @@ tasklistFields = ["title", "description", "status", "priority", "quote"]
 tasklist = []
 tasklist_filename = "tasklist_file.csv"
 
-with open('data.csv', newline='', encoding='utf-8') as csvfile:
-    reader = csv.reader(csvfile) 
-    
-        
 class Task:
     def __init__(self, title, description, status, priority, quote):
         self.title = title
@@ -29,6 +25,14 @@ def write_tasks(task):
             writer.writeheader()
         
         writer.writerow(task.__dict__)
+
+def read_tasks_from_csv():
+    with open('data.csv', newline='', encoding='utf-8') as csvfile:
+        reader = csv.reader(csvfile)
+        for task in reader:
+           new_task = Task(task[0], task[1], task[2], task[3], task[4])
+           tasklist.append(new_task)
+
 
 def generate_priority():
     return np.random.randint(1, 5) 
@@ -137,8 +141,6 @@ def task_manager():
       use_task_manager = input("Do you need to use the task manager?")
 
 
-    
-         
 
 
 

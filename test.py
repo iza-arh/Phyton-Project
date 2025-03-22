@@ -154,20 +154,27 @@ def sort_tasks():
 def task_manager():
     use_task_manager = input("Do you need to use the task manager?")
     while use_task_manager == "yes":
-      
-      type_of_function = input("What are ya gonna do?")
 
-      if(type_of_function == "add task"):
+      print("\n1. Add Task")
+      print("2. Show Tasks")
+      print("3. Search Task")
+      print("4. Delete Tasks")
+      print("5. Find task based on priority")
+      print("6. Exit")
+
+      choice = input("Choose an option: ")
+
+      if(choice == 1):
           add_task()
-      elif(type_of_function == "show task"):
+      elif(choice == 2):
           show_tasks()
-      elif(type_of_function == "search a task"):
+      elif(choice == 3):
           title = input("Whats the  name of the task?")
           search_task(title)
-      elif(type_of_function == "delete a task"):
+      elif(choice == 4):
           title = input("Whats the  name of the task?")
           delete_task(title)
-      elif(type_of_function == "filter tasks based on priority"):
+      elif(choice == 5):
           priority_number = int(input("Insert the number of priority "))
           find_task_based_on_priority(priority_number)
       use_task_manager = input("Do you need to use the task manager?")

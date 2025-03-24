@@ -95,13 +95,23 @@ def search_task(title):
             return task      
     print("The task isnt in the the task list")
 
+def log_deletions(fichero_log_name):
+    def decorator_log(function):
+        def decorator_function(title):
+            task_obj = function(title)
+            with open(fichero_log_name, mode='a') as opened_file:
+                opened_file.write(str(task_obj.__dict__) + "\n")
+        return decorator_function
+    return decorator_log
 
-
+@log_deletions("deletions.log")
 def delete_task(title):
     try :
       task_index = tasklist.index(search_task(title))
+      deleted_task = tasklist[task_index]
       tasklist.pop(task_index)
       print("the task was deleted")
+      return deleted_task
     except ValueError:
       print("The task isnt in the the task list")
 

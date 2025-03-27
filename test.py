@@ -86,7 +86,9 @@ def show_tasks():
         print_task_details(task)
    
 
-
+high_priority_tasks = [x for x in tasklist if x.priority == "5"]
+for task in high_priority_tasks:
+    print_task_details(task)
 
 def search_task(title):
     for task in tasklist:
